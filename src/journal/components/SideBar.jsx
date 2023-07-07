@@ -1,10 +1,16 @@
 import { TurnedInNot } from '@mui/icons-material'
+import { useDispatch, useSelector } from 'react-redux'
+
 import { Box, Drawer, List, Toolbar, Divider, Typography, ListItem, ListItemButton, ListItemIcon, Grid, ListItemText } from '@mui/material'
 
 
 import React from 'react'
 
 export const SideBar = ({ drawerWidth= 240 }) => {
+
+    //traer datos del store
+    const {displayName} = useSelector(status => status.auth);
+    
   return (
     <Box
         component='nav'
@@ -19,7 +25,7 @@ export const SideBar = ({ drawerWidth= 240 }) => {
             }}
         >
             <Toolbar>
-                <Typography variant='h6' noWrap component='div'> Kevin Cevallos </Typography>
+                <Typography variant='h6' noWrap component='div'> {displayName} </Typography>
             </Toolbar>
             <Divider />
             

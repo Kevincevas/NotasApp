@@ -16,7 +16,7 @@ export const AuthLayout = ({ children, title='' }) => {
         {/* contenedor formulario */}
         <Grid 
             item
-            className='box-shadow'
+            className='animate__animated animate__fadeInLeft animated__faster'
             xs={3}
             sx={{ width: {md:450 }, backgroundColor: 'white', padding: 3, borderRadius: 2 }} 
         >

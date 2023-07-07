@@ -42,7 +42,6 @@ export const LoginPage = () => {
   return (
 
     <AuthLayout title='Login'>
-
         <form action="" onSubmit={onSubmit}>
           <Grid container>
             <Grid item xs={12} sx={{mt: 2}}>
