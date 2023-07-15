@@ -8,16 +8,17 @@ import { AuthLayout } from '../layout/AuthLayout';
 import { useForm } from '../../hooks';
 import { startGoogleSignIn, startLoginWithEmailPassword } from "../../store/auth/thunks";
 
+const formData = {
+  email:'',
+  password: '',
+}
 
 export const LoginPage = () => {
   
   const {status, displayName, errorMessage} = useSelector( state => state.auth );
   const dispatch = useDispatch();
   
-  const {email, password, formState, onInputChange} = useForm({
-    email:'',
-    password: '',
-  });
+  const {email, password, onInputChange} = useForm(formData);
   
   //deshabilitando los bototes mientras se autentica mediante google
   const isAuthenticated = useMemo( () => status === 'checking', [status] );

@@ -41,10 +41,22 @@ export const journalSlice = createSlice({
     },
 
     setSaving: (state) => {
-
+      state.isSaving= true;
+      
     },
 
     updateNote: (state, action) => {
+      state.isSaving = false;
+      //map barre los elementos del arreglo y regresa esos valores
+      state.notes = state.notes.map( note => {
+
+        //actualiza los valores en el side de las notas
+        if( note.id === action.payload.id ) {
+          return action.payload;
+        }
+
+        return note;
+      } )
 
     },
 
