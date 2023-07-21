@@ -18,6 +18,10 @@ export const startGoogleSignIn = () => {
         //bloquear botones
         dispatch( checkingCredentials() );
         const result = await signInWithGoogle();
+        
+        //usado para el test
+        // console.log({result})
+
         if (!result.ok) return dispatch( logout( result.errorMessage ) );
         dispatch( login( result ) );
 
@@ -46,7 +50,7 @@ export const startLoginWithEmailPassword = ({email,password}) => {
         const {ok, uid, photoURL, errorMessage, displayName} = await loginUserWithEmailPassword({email,password })
         if(!ok) return dispatch( logout({errorMessage}) )
 
-        dispatch( login( {ok, uid, photoURL, errorMessage, displayName} ) )
+        dispatch( login( {ok, uid, photoURL, email, errorMessage, displayName} ) )
 
     }
 }

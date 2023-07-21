@@ -27,9 +27,9 @@ export const LoginPage = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
+    // console.log({email,password})
     //llamando al thunk y enviando el email y password para validar
-    console.log(status,displayName, errorMessage)
-    dispatch( startLoginWithEmailPassword({email,password}) );
+    dispatch( startLoginWithEmailPassword({ email,password }) );
   }
   
   const onGoogleSignIn = () => {
@@ -43,7 +43,7 @@ export const LoginPage = () => {
   return (
 
     <AuthLayout title='Login'>
-        <form action="" onSubmit={onSubmit}>
+        <form aria-label="submit-form" action="" onSubmit={onSubmit}>
           <Grid container>
             <Grid item xs={12} sx={{mt: 2}}>
               <TextField 
@@ -60,6 +60,9 @@ export const LoginPage = () => {
             <Grid item xs={12} sx={{mt: 2}}>
               <TextField 
                 label='Password' 
+                inputProps={{
+                  'data-testid':'password'
+                }}
                 type= 'password'
                 placeholder='Password'
                 fullWidth
@@ -104,6 +107,7 @@ export const LoginPage = () => {
                   disabled= {isAuthenticated}
                   variant='contained' 
                   fullWidth 
+                  aria-label="google-btn"
                   onClick={onGoogleSignIn}
                 >
                   <Google />

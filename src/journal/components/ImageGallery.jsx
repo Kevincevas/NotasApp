@@ -8,10 +8,8 @@ export const  ImageGallery = ({ images }) => {
     <ImageList sx={{ width: '100%', height: 500 }} cols={4} rowHeight={200}>
     
       {
-        images.length == 0
-        ? 
-        <h1>No hay imagenes cargadas</h1>
-        : 
+        // if ( images.length === 0 ) return;
+
         images.map((image) => (
           <ImageListItem key={image}>
             <img
@@ -22,8 +20,6 @@ export const  ImageGallery = ({ images }) => {
             />
           </ImageListItem>
         ))
-
-
       }
   </ImageList>
       

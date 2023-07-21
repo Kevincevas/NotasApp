@@ -4,6 +4,7 @@ import { FirebaseAuth } from "./config";
 //creando la nueva instancia
 const googleProovider = new GoogleAuthProvider();
 
+//login con google en firebase
 export const signInWithGoogle = async() => {
     try {
         const result = await signInWithPopup(FirebaseAuth, googleProovider);
@@ -33,7 +34,7 @@ export const signInWithGoogle = async() => {
     }
 }
 
-
+//registro con firebase
 export const registerUserWithEmailPassword = async({email,password,displayName}) => {
     try {
         console.log({email,password,displayName})
@@ -57,6 +58,7 @@ export const registerUserWithEmailPassword = async({email,password,displayName})
     }
 }
 
+//login normal con firebase
 export const loginUserWithEmailPassword = async({email,password}) => {
     try {
         const resp = await signInWithEmailAndPassword(FirebaseAuth, email,password);
@@ -76,6 +78,7 @@ export const loginUserWithEmailPassword = async({email,password}) => {
     }
 }
 
+//logout con firebase
 export const logoutFirebase = async() => {
     return await FirebaseAuth.signOut();
 }
